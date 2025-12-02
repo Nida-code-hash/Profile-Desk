@@ -4,7 +4,7 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import Login from "../pages/Login/Login";
 import Profile from "../pages/Profile/Profile";
 import ProtectedRoute from "./ProtectedRouteHandler";
-import PublicRoute from "./PublicRouteHander";
+// import PublicRoute from "./PublicRouteHander";
 
 const router = [
 
