@@ -230,78 +230,8 @@ const HomePage: React.FC = () => {
     if (stored) setUser(JSON.parse(stored));
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("userData");
-    window.location.href = "/login";
-  };
-
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-white shadow-sm fixed-top py-3">
-        <div className="container d-flex align-items-center gap-3 ">
-        
-
-
-          {user?.avatar && (
-                <img
-                  src={user.avatar}
-                  className="rounded-circle"
-                  width="40"
-                  height="40"
-                  style={{
-                    objectFit: "cover",
-                    border: "2px solid #0d6efd",
-                  }}
-                />
-              )}
-
-              <span className="fw-semibold text-primary">{user?.fullName}</span>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navMenu"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse" id="navMenu">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
-              <li className="nav-item">
-                <a className="nav-link" href="#hero">Home</a>
-              </li>
-
-              <li className="nav-item">
-                <a className="nav-link" href="#about">About</a>
-              </li>
-
-              <li className="nav-item">
-                <a className="nav-link" href="#services">Services</a>
-              </li>
-
-              <li className="nav-item">
-                <a className="nav-link" href="#contact">Contact</a>
-              </li>
-            </ul>
-
-            {/* USER PANEL */}
-            <div className="d-flex align-items-center gap-3 ms-lg-4">
-
-              <button className="btn btn-outline-primary btn-sm px-3">
-                Profile
-              </button>
-
-              <button
-                className="btn btn-danger btn-sm px-3"
-                onClick={handleLogout}
-              >
-                Logout
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
 
       {/* ----------------------------- */}
       {/*          HERO SECTION          */}
@@ -420,6 +350,9 @@ export default HomePage;
 
 
 
+
+// email: john@example.com
+// password: 12345678
 
 
 

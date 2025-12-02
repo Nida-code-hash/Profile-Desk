@@ -4,17 +4,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 import { BrowserRouter } from "react-router-dom";
-import { UserProvider } from "./components/Context/UserContext.tsx";
 
 import './index.css';
 import App from './App.tsx';
+import { HeaderProvider } from './components/Context/HeaderContext.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <UserProvider>
+      <HeaderProvider>
         <App />
-      </UserProvider>
+      </HeaderProvider>
     </BrowserRouter>
   </StrictMode>
 );

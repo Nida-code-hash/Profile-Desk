@@ -1,58 +1,41 @@
 import AppLayout from "../components/AppLayout/AppLayout";
 import MetaData from "../components/MetaData/MetaData";
+import About from "../pages/About/About";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Login from "../pages/Login/Login";
 import ProtectedRoute from "./ProtectedRouteHandler";
 import PublicRoute from "./PublicRouteHander";
 
 const router = [
-  // Public Route → Login
-  {
-    path: "/",
-    element: (
-      <PublicRoute>
-        <>
-          <Login />
-          <MetaData title="Login" />
-        </>
-      </PublicRoute>
-    ),
-  },
 
-  // Public Route → Login
   {
-    path: "/login",
+    path: 'login',
     element: (
-      <PublicRoute>
-        <>
-          <Login />
-          <MetaData title="Login" />
-        </>
-      </PublicRoute>
-    ),
+      <>
+        <Login />
+        <MetaData title="Login" />
+      </>
+    )
   },
-
-  // Protected Route → Dashboard
   {
-    path: "/dashboard",
-    element: (
-      <ProtectedRoute>
-        <AppLayout />
-      </ProtectedRoute>
-    ),
+    path: '/',
+    element:
+      <AppLayout />,
+    // <ProtectedRoute>
+    //   <AppLayout />
+    // </ProtectedRoute>,
     children: [
       {
         index: true,
-        element: 
-        <>
-        <Dashboard />
-          <MetaData title="Dashboard" />
+        element: (
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        )
+      }
+    ]
+  }
 
-        </>
-
-      },
-    ],
-  },
 ];
 
 export default router;

@@ -8,7 +8,7 @@ interface Props {
 const ProtectedRoute: React.FC<Props> = ({ children }) => {
   const token = localStorage.getItem("accessToken");
 
-  // If token not found → send user to login
+  // If user is NOT logged in → redirect to login
   if (!token) {
     return <Navigate to="/login" replace />;
   }
