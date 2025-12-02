@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import { useHeader } from "../Context/HeaderContext";
 import { useNavigate } from "react-router-dom";
@@ -9,12 +11,10 @@ const Header: React.FC = () => {
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("userData");
-
     setName("");
     navigate("/login");
   };
 
-  // Scroll to section by ID
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -36,34 +36,25 @@ const Header: React.FC = () => {
         zIndex: 999,
       }}
     >
-      {/* Left: Welcome */}
-      <h3 style={{ margin: 0 }}>Welcome {name || "Guest"} 👋</h3>
+      <h3 style={{ margin: 0 }}>Welcome {name || "Guest"} </h3>
 
-      {/* Middle: Navigation Menu */}
       <div style={{ display: "flex", gap: "20px" }}>
-        <span
-          style={{ cursor: "pointer" }}
-          onClick={() => scrollToSection("home")}
-        >
+        <span style={{ cursor: "pointer" }} onClick={() => scrollToSection("home")}>
           Home
         </span>
-
-        <span
-          style={{ cursor: "pointer" }}
-          onClick={() => scrollToSection("about")}
-        >
+        <span style={{ cursor: "pointer" }} onClick={() => scrollToSection("about")}>
           About
         </span>
-
-        <span
-          style={{ cursor: "pointer" }}
-          onClick={() => scrollToSection("contact")}
-        >
+        <span style={{ cursor: "pointer" }} onClick={() => scrollToSection("contact")}>
           Contact Us
+        </span>
+
+        {/* NEW PROFILE MENU */}
+        <span style={{ cursor: "pointer" }} onClick={() => navigate("/profile")}>
+          Profile
         </span>
       </div>
 
-      {/* Right: Logout */}
       <button
         onClick={handleLogout}
         style={{
